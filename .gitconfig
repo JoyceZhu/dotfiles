@@ -1,0 +1,38 @@
+[branch]
+	autosetuprebase = always
+[user]
+	name = Joyce Zhu
+	email = jzhu29@u.rochester.edu
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/joyce.zhu/.gitignore_global
+	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color "diff"]
+	new = yellow bold
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	whitespace = red reverse
+[push]
+	default = current
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = yellow bold
+	newHighlight = yellow bold 22
+[diff-so-fancy]
+	stripLeadingSymbols = false
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

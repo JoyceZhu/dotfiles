@@ -1,0 +1,232 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+cmd+b",
+        "command": "openInGithub.openInGitHubBlame"
+    },
+    {
+        "key": "alt+cmd+g",
+        "command": "gitlens.diffWithNext",
+        "when": "editorTextFocus && gitlens:activeIsTracked && gitlens:keymap == 'chorded'"
+    },
+    {
+        "key": "alt+cmd+g .",
+        "command": "-gitlens.diffWithNext",
+        "when": "editorTextFocus && gitlens:activeIsTracked && gitlens:keymap == 'chorded'"
+    },
+    {
+        "key": "alt+cmd+g",
+        "command": "gitlens.diffWithNext",
+        "when": "editorTextFocus && gitlens:activeIsTracked && gitlens:keymap == 'alternate'"
+    },
+    {
+        "key": "alt+.",
+        "command": "-gitlens.diffWithNext",
+        "when": "editorTextFocus && gitlens:activeIsTracked && gitlens:keymap == 'alternate'"
+    },
+    {
+        "key": "cmd+c",
+        "command": "-extension.vim_cmd+c",
+        "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
+    },
+    {
+        "key": "cmd+v",
+        "command": "-extension.vim_cmd+v",
+        "when": "editorTextFocus && vim.active && vim.use<D-v> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+k",
+        "command": "-workbench.action.terminal.clear",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+cmd+f",
+        "command": "openInGithub.openInGitHubFile"
+    },
+    {
+        "key": "ctrl+cmd+h",
+        "command": "openInGithub.openInGitHubHistory"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "alt+cmd+x",
+        "command": "extension.convertToRGBA",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+c",
+        "command": "-extension.convertToRGBA",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+x",
+        "command": "extension.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-extension.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+g cmd+h",
+        "command": "gitlens.openCommitInRemote"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "gitlens.explorers.openChangedFileChanges"
+    },
+    {
+        "key": "alt+left",
+        "command": "subwordNavigation.cursorSubwordLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "-subwordNavigation.cursorSubwordLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "subwordNavigation.cursorSubwordLeftSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "-subwordNavigation.cursorSubwordLeftSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "subwordNavigation.cursorSubwordRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "-subwordNavigation.cursorSubwordRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "subwordNavigation.cursorSubwordRightSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "-subwordNavigation.cursorSubwordRightSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-extension.vim_cmd+d",
+        "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+    },
+    {
+        "key": "cmd+g cmd+l",
+        "command": "extension.gitHubUrl",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+l c",
+        "command": "-extension.gitHubUrl",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+b cmd+up",
+        "command": "expand-selection-to-scope.expand"
+    },
+    {
+        "key": "cmd+y",
+        "command": "redo",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+z",
+        "command": "-redo",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "cursorWordPartRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "-cursorWordPartRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "cursorWordPartRightSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+right",
+        "command": "-cursorWordPartRightSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "cursorWordPartStartLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "-cursorWordPartStartLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "cursorWordPartStartLeftSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+left",
+        "command": "-cursorWordPartStartLeftSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+g cmd+l",
+        "command": "gitlens.copyRemoteFileUrlToClipboard"
+    },
+    {
+        "key": "ctrl+cmd+w",
+        "command": "-workbench.action.toggleTabsVisibility"
+    },
+    {
+        "key": "alt+cmd+=",
+        "command": "-peacock.lighten"
+    }
+]
