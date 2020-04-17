@@ -39,6 +39,7 @@
     "editor.occurrencesHighlight": false,
     "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
+    "editor.rulers": [{"column": 80, "color": "#fd0000"}],
     "editor.selectionHighlight": false,
     "editor.smoothScrolling": true,
     "editor.snippetSuggestions": "top",
@@ -52,17 +53,13 @@
         },
         "comments": "#f58403"
     },
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-        "typescript": "javascriptreact",
-        "typescriptreact": "javascriptreact",
-    },
+    // "emmet.includeLanguages": {
+    //     // "javascript": "javascriptreact",
+    //     "javascript": "html",
+    //     // "typescript": "typescriptreact"
+    //     "typescript": "html",
+    // },
     "emmet.showSuggestionsAsSnippets": true,
-    "emmet.syntaxProfiles": {
-        "javascript": "jsx",
-        "typescript": "jsx",
-        "typescriptreact": "jsx",
-    },
     "emmet.triggerExpansionOnTab": true,
     "eslint.options": {
         "rulePaths": [
@@ -75,12 +72,16 @@
         "*.json": "jsonc",
         "winrelease": "python",
         "copyfile": "python",
-        "verify-local-environment": "python"
+        "verify-local-environment": "python",
+        "Brewfile": "ruby"
     },
     "files.trimTrailingWhitespace": true,
     "git.autofetch": false,
     "git.confirmSync": false,
     "git.path": "/usr/local/bin/git",
+    "gitlens.advanced.blame.customArguments": [
+        "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
+    ],
     "gitlens.advanced.messages": {
         "suppressCommitNotFoundWarning": true,
         "suppressNoRepositoryWarning": true,
@@ -161,6 +162,7 @@
         }
     ],
     "precog.enable": false,
+    "problems.showCurrentInStatus": true,
     "python.jediEnabled": false,
     "python.linting.flake8Args": [
         "--max-line-length=8000",
@@ -181,7 +183,7 @@
         ]
     },
     "rewrap.autoWrap.enabled": true,
-    "search.location": "panel",
+    "search.enableSearchEditorPreview": true,
     "sync.askGistName": false,
     "sync.autoDownload": false,
     "sync.autoUpload": false,
@@ -198,6 +200,7 @@
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.shell.osx": "/bin/zsh",
     // "update.channel": "none",
+    "timeline.showView": true,
     "typescript.format.enable": false,
     "typescript.tsdk": "node_modules/typescript/lib",
     "vim.handleKeys": {},
@@ -226,7 +229,7 @@
         "editorGutter.modifiedBackground": "#9615d1",
         "editorIndentGuide.activeBackground": "#fbff00",
         "editorIndentGuide.background": "#018d2b",
-        "editorLineNumber.activeForeground": "#fff",
+        "editorLineNumber.activeForeground": "#ffffff",
         "editorLineNumber.foreground": "#990000",
         "editorOverviewRuler.addedForeground": "#11f71d",
         "editorOverviewRuler.deletedForeground": "#e6d709",
@@ -247,6 +250,7 @@
     "workbench.colorTheme": "VimBlackboard",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.titleScrollbarSizing": "large",
     "workbench.fontAliasing": "antialiased",
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.iconTheme": "cage",
@@ -254,7 +258,4 @@
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.tree.renderIndentGuides": "always",
     "editor.suggestSelection": "first",
-    "gitlens.advanced.blame.customArguments": [
-        "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
-    ],
 }
