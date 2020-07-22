@@ -37,28 +37,14 @@ zstyle ':completion:expand-alias-word:*' add-space false
 #zstyle ':completion:*:*:git:*' script ~/git-completion.zsh
 # Tab-complete reminders from man pages
 compdef __gnu_generic remind
-alias dd="~/quip/bin/docker-devel"
 alias vimrc="vim ~/.vimrc"
-# alias vim="/usr/local/bin/vim"
 alias rc="vim ~/.zshrc"
 alias erc="source ~/.zshrc"
-alias classicuitest="bin/run-uitest --remote uitest/test/specs/spreadsheets-classic.js"
-alias classicuidebug="bin/run-uitest --remote --debug uitest/test/specs/spreadsheets-classic.js"
-alias acceltest="bin/run-uitest --remote uitest/test/specs/spreadsheets-10x.js"
-alias acceldebug="bin/run-uitest --remote --debug uitest/test/specs/spreadsheets-10x.js"
-alias a11ytest="bin/run-uitest --remote uitest/test/specs/a11y.js"
-alias a11ydebug="bin/run-uitest --remote --debug uitest/test/specs/a11y.js"
-alias tf="~/devops/terraform/aws/bin/tf"
-alias tfauth="~/devops/terraform/aws/bin/tfauth"
-alias q="cd ~/quip"
-alias d="cd ~/devops"
+
 alias pu="git pull; git push"
-export PATH="$PATH":~/android-sdk-macosx/tools:~/android-sdk-macosx/tools/bin:~/android-sdk-macosx/platform-tools:~/android-ndk-r10d:~/quip/android/tools:~/local/bin:~/quip/bin:~/google-cloud-sdk/bin/:~/depot_tools:~/neovim/bin:~/.iterm2
-export ANDROID_HOME="${HOME}/android-sdk-macosx/"
-export ANDROID_NDK="${HOME}/android-ndk-r10d/"
-export QUIP_LITE_PYTHON_VERSION=3.7.3
+
 alias go="git add .;git commit -v"
-export VSCODE_CONFIG_PATH="~/Library/Application Support/Code/User/settings.json"
+export VSCODE_CONFIG_PATH="${HOME}/Library/Application\ Support/Code/User/settings.json"
 function gf() {
     git checkout -b "$1" origin/master
 }
@@ -81,12 +67,10 @@ alias ....="../../.."
 alias directories="file * | grep directory"
 alias .....="../../../.."
 alias diskspace="du -sh | sort -nr | more"
-alias home="cd ~"
 alias p="python"
 alias init="git init"
 alias addall="git add ."
 alias addpy="git add *py"
-alias gco="git commit"
 alias pull="git pull"
 alias push="git push origin"
 alias addbranch="git checkout -b"
@@ -96,29 +80,19 @@ alias merge="git merge"
 alias binstall="brew install"
 alias activate="source $HOME/venv/bin/activate"
 alias mysql="mysql -u root -p"
-# alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
-# alias aupdate="cd $HOME/admgt-service; alembic -c local.ini upgrade head"
 alias weather='ansiweather -l "San Francisco,us" -u imperial -s true; ansiweather -l "Palo Alto,us" -u imperial -s true'
-alias windocker='bin/expose-docker.sh 192.168.32.1'
 eval $(thefuck --alias)
 export LSCOLORS=Gadxcxdxfxegedabagacad
 alias mycommits="git log --author=\"Joyce\""
-export PYTHONDONTWRITEBYTECODE=1
 export VENV="$HOME/venv"
 export EDITOR=$(which vim)
 export GIT_EDITOR=$(which vim)
 export BROKER_HOST=localhost
 export ENV_BROKER_HOST=localhost
-# export PATH=$PATH:/usr/local/mysql:/usr/local/sbin:/usr/local/mysql/bin
-export ADMGT_SETTINGS="$HOME/admgt-service/local.ini"
 alias firefox=/Applications/Firefox.app/Contents/MacOS/firefox
 export MOZ_NO_REMOTE=0
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export BROWSER=firefox
-alias droidl="cd ~/quip/android && mv *.gradle ../ && lint -Werror --classpath ../buck-out/gen/android/lib__lib__output/lib.jar . && mv ../*.gradle ."
-alias ngrok="/Applications/ngrok"
-alias hp="vim ~/quip/settings/hyperlocal.py"
-alias grrd="~/devops/bin/grr"
 
 # VSCode color scheme development
 alias uvscode="cp ~/joycevimblackboard/themes/vim-blackboard.tmTheme  ~/.vscode/extensions/vimblackboard/themes/vim-blackboard.tmTheme"
@@ -299,5 +273,5 @@ zplugin ice wait"0" lucid
 zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 
-# Because gateway/hogwarts.
-ssh-add -A
+
+source ~/.quiprc
