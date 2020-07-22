@@ -228,5 +228,21 @@
     {
         "key": "alt+cmd+=",
         "command": "-peacock.lighten"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "search.action.openNewEditor"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "-workbench.action.files.saveAll"
     }
 ]
