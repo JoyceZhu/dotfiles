@@ -243,7 +243,7 @@ bindkey -M isearch " " magic-space
 
 # zmodload -i zsh/complist
 
-q
+
 # Various other scripts
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # iTerm2 shell integration
@@ -275,3 +275,4 @@ zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 
 source ~/.quiprc
+q
