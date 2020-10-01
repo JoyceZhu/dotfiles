@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Google Selected Text</name>
+  <version>1.0</version>
+  <bundle>com.benknight.googleselectedtext</bundle>
+  <updated>1430200008</updated>
+  <file>google_selected_text.alfredworkflow</file>
+</workflow>

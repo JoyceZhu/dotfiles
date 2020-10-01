@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.swin</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>7686C74A-A33F-49C2-8231-40F1569A481A</key>
+		<array/>
+		<key>BBE27144-1C88-4DB4-BCF3-B4E7CCE3A14B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7686C74A-A33F-49C2-8231-40F1569A481A</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Hides all the other windows.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>34D29419-AABB-4C45-8FBE-4DF33B9E967F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Emanuele Munafò</string>
+	<key>description</key>
+	<string>Switch between various windows in the same desktop</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Windows Switcher</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+set qwindowName to q as text
+
+tell application "System Events"	repeat with theProcess in processes		if not background only of theProcess then			tell theProcess				set processName to name				set theWindows to windows			end tell			set windowsCount to count of theWindows			if windowsCount is greater than 0 then				repeat with theWindow in theWindows
+					set windowName to name of theWindow
+					if qwindowName is windowName then
+						tell theProcess
+							activate							set frontmost to true
+							perform action "AXRaise" of theWindow							end tell
+					else
+						set visible of theProcess to false
+						--tell theWindow to keystroke "h" using command down
+					end if				end repeat			end if		end if	end repeatend tell
+------------
+-- mio fine
+end alfred_script
+
+--------------
+(*
+  -- your script here
+set params to theSplit(q, " ") of meset windowName to first item of params as integer
+	tell application "System Events"		set this_info to {}		repeat with theProcess in (application processes where visible is true)			set this_info to this_info &amp; (value of (first attribute whose name is "AXWindows") of theProcess)		end repeat		this_info -- display list in results window of AppleScript Editor 	end tell
+*)
+on theSplit(theString, theDelimiter)	set oldDelimiters to AppleScript's text item delimiters	set AppleScript's text item delimiters to theDelimiter	set theArray to every text item of theString	set AppleScript's text item delimiters to oldDelimiters	return theArrayend theSplit</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>7686C74A-A33F-49C2-8231-40F1569A481A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>swin</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Filtering results...</string>
+				<key>script</key>
+				<string>set theQuery to "{query}"set xmlResult to "&lt;?xml version=\"1.0\"?&gt;
+&lt;items&gt;
+"tell application "System Events"	repeat with theProcess in processes		if not background only of theProcess then			tell theProcess
+				set processName to name				set theWindows to windows			end tell			set windowsCount to count of theWindows			if windowsCount is greater than 0 then				repeat with theWindow in theWindows
+					set windowName to name of theWindow
+					-- Get name of app using process name
+					try						set appName to getAppName(processName) of me					on error						set appName to "Unknown"					end try
+					-- Check if no word are digited show all windows, otherwise filtered by name
+					if length of theQuery &gt; 0 then
+						if theQuery is in windowName or theQuery is in processName then
+						set xmlResult to addWindowItem(windowName, processName, appName, xmlResult) of me
+						end if
+					else
+						set xmlResult to addWindowItem(windowName, processName, appName, xmlResult) of me
+					end if				end repeat			end if		end if	end repeatend tell
+
+set xmlResult to xmlResult &amp; "&lt;/items&gt;"xmlResulton addWindowItem(windowName, processName, appName, xmlResult)	set windowName to escapeString(windowName)
+	set appName to escapeString(appName)
+	set iconPath to getIconPath(appName)	set res to xmlResult &amp; "&lt;item uid=\""	set res to res &amp; 1 &amp; "\""	set res to res &amp; " arg=\"" &amp; windowName &amp; "\""	set res to res &amp; " autocomplete=\"" &amp; windowName &amp; "\""	set res to res &amp; "&gt;"	set res to res &amp; "&lt;icon&gt;" &amp; iconPath &amp; "&lt;/icon&gt;"	set res to res &amp; "&lt;title&gt;" &amp; windowName &amp; "&lt;/title&gt;"	set res to res &amp; "&lt;subtitle&gt; Process: " &amp; processName &amp; " | App name: " &amp; appName &amp; "&lt;/subtitle&gt;"	set res to res &amp; "&lt;/item&gt;
+	"	return resend addSessionItemon escapeString(toEscape)	set res to replaceChars(toEscape, "\"", "&amp;quot;")	set res to replaceChars(res, "'", "&amp;apos;")	set res to replaceChars(res, "&amp;", "&amp;amp;")	set res to replaceChars(res, "&gt;", "&amp;gt;")	set res to replaceChars(res, "&lt;", "&amp;lt;")	return resend escapeStringon replaceChars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replaceChars
+on getAppName(processName)	tell application "System Events"		set process_bid to get the bundle identifier of process processName		set application_name to file of (application processes where bundle identifier is process_bid)	end tell	return name of (first item of application_name)end getAppNameon getIconPath(appName)	set defLocation to "Contents/Resources/"	--set appPath to "/Applications/" &amp; appName  &amp; "/"	set appPath to POSIX path of (path to application appName)	try		set appIconPath to appPath &amp; defLocation &amp; (do shell script "defaults read " &amp; (quoted form of appPath) &amp; "/Contents/Info.plist CFBundleIconFile")		if ".icns" is not in appIconPath then			set appIconPath to appIconPath &amp; ".icns"		end if	on error		set appIconPath to "switch.png"	end try	return appIconPathend getIconPath</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Write the name of the window</string>
+				<key>title</key>
+				<string>Switch between windows</string>
+				<key>type</key>
+				<integer>6</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>BBE27144-1C88-4DB4-BCF3-B4E7CCE3A14B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+set qwindowName to q as text
+
+tell application "System Events"	repeat with theProcess in processes		if not background only of theProcess then			tell theProcess				set processName to name				set theWindows to windows			end tell			set windowsCount to count of theWindows			if windowsCount is greater than 0 then				repeat with theWindow in theWindows
+					set windowName to name of theWindow
+					if qwindowName is windowName then
+						tell theProcess
+							activate							set frontmost to true
+							perform action "AXRaise" of theWindow						end tell
+					end if				end repeat			end if		end if	end repeatend tell
+------------
+-- mio fine
+end alfred_script
+
+--------------
+(*
+  -- your script here
+set params to theSplit(q, " ") of meset windowName to first item of params as integer
+	tell application "System Events"		set this_info to {}		repeat with theProcess in (application processes where visible is true)			set this_info to this_info &amp; (value of (first attribute whose name is "AXWindows") of theProcess)		end repeat		this_info -- display list in results window of AppleScript Editor 	end tell
+*)
+on theSplit(theString, theDelimiter)	set oldDelimiters to AppleScript's text item delimiters	set AppleScript's text item delimiters to theDelimiter	set theArray to every text item of theString	set AppleScript's text item delimiters to oldDelimiters	return theArrayend theSplit</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>34D29419-AABB-4C45-8FBE-4DF33B9E967F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>A simple windows switcher that can be used for windows handling.</string>
+	<key>uidata</key>
+	<dict>
+		<key>34D29419-AABB-4C45-8FBE-4DF33B9E967F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>420</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>7686C74A-A33F-49C2-8231-40F1569A481A</key>
+		<dict>
+			<key>note</key>
+			<string>Hides the other processes.</string>
+			<key>xpos</key>
+			<integer>410</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>BBE27144-1C88-4DB4-BCF3-B4E7CCE3A14B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>140</integer>
+			<key>ypos</key>
+			<integer>280</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.1</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

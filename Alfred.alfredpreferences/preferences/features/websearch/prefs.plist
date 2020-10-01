@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>2EECD0B9-F331-4E22-A791-F479E21CE22E</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>self</string>
+			<key>text</key>
+			<string>Quip.tools myself</string>
+			<key>url</key>
+			<string>https://quip.tools/lookup?id=self</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>4A56086C-A977-4D8A-B4E1-5388A2656571</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>quip</string>
+			<key>text</key>
+			<string>Search quip.tools for '{query}'</string>
+			<key>url</key>
+			<string>https://quip.tools/lookup?id={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>57E60AA7-900E-49F3-A2E0-8812EE83E78B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>quip</string>
+			<key>text</key>
+			<string>Open quip.tools</string>
+			<key>url</key>
+			<string>https://quip.tools</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>EE02A145-C840-4AAF-895C-E88C04897C32</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>commit</string>
+			<key>text</key>
+			<string>Search Quip GitHub for commit '{query}'</string>
+			<key>url</key>
+			<string>https://github.com/quip/quip/commit/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

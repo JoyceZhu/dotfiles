@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Windows Switcher</name>
+  <version>1.1</version>
+  <bundle>com.swin</bundle>
+  <updated>1470139933</updated>
+  <file>windows_switcher.alfredworkflow</file>
+</workflow>
