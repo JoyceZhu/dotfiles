@@ -100,6 +100,7 @@
   "openInGitHub.repositoryType": "github",
   "openInGitHub.excludeCurrentRevision": false,
   "openInGithub.maxBuffer": 512000,
+
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",
@@ -193,7 +194,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.fontFamily": "Monaco",
+  "terminal.integrated.fontFamily": "Cascadia Code",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.rendererType": "dom",
   "terminal.integrated.shell.osx": "/bin/zsh",
@@ -203,8 +204,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "vim.handleKeys": {},
   "vim.useCtrlKeys": false,
-  "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-  "vscode-neovim.useCtrlKeysForInsertMode": false,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/Applications/nvim",
   "window.openFoldersInNewWindow": "on",
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "window.zoomLevel": 0,
@@ -261,5 +261,6 @@
   "workbench.activityBar.visible": true,
 "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
+},
+"python.showStartPage": false
 }
