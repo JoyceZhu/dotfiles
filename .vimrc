@@ -140,7 +140,6 @@ call plug#begin()
 call plug#end()
 set updatetime=100
 let g:eldar_green = "#06eb78"
-syntax enable
 silent! colorscheme eldar " Custom color scheme
 map <leader>fs :NERDTreeToggle<cr>
 
