@@ -38,3 +38,7 @@
 	trustExitCode = true
 [rebase]
 	autoStash = true
+[format]
+	pretty = online
+[diff]
+	colorMoved = default
