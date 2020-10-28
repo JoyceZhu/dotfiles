@@ -252,10 +252,13 @@ source ~/.iterm2_shell_integration.zsh
 source ~/.zsh-interactive-cd.plugin.zsh
 
 ### Added by Zplugin's installer
-source '/Users/joyce.zhu/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source ~/.zplugin/bin/zplugin.zsh
+# autoload -Uz _zplugin
+# (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer ch
+
+zplugin ice wait"0" atload"unalias grv; unalias ga; unalias gd" lucid
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
 
 zplugin ice wait"0" blockf lucid
 zplugin light zsh-users/zsh-autosuggestions
@@ -266,13 +269,13 @@ zplugin light tarrasch/zsh-bd
 zplugin light peterhurford/git-it-on.zsh
 zplugin light mafredri/zsh-async
 
-zplugin ice wait"0" atload"unalias grv" lucid
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
-
 zplugin ice wait"0" lucid
 zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-
+zplugin ice wait"0.1" lucid
+zplugin light wfxr/forgit
 
 source ~/.quiprc
+unalias ga
+alias ga=forgit::add
 q
