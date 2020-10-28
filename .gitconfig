@@ -25,11 +25,17 @@
 	old = red bold
 	whitespace = red reverse
 [delta]
-    line-numbers = true
-    plus-color = "#012800"
-    minus-color = "#340001"
+    features = line-numbers
+    plus-style = syntax "#044e03"
+    minus-style = syntax "#720204"
+    minus-emph-style = syntax bold "#8a1c1e"
+    plus-emph-style = syntax bold "#157913"
     syntax-theme = Monokai Extended
     colorMoved = default
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
 [interactive]
     diffFilter = delta --color-only
 [push]
