@@ -276,6 +276,5 @@ zplugin ice wait"0.1" lucid
 zplugin light wfxr/forgit
 
 source ~/.quiprc
-unalias ga
 alias ga=forgit::add
 q
