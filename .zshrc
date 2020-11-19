@@ -265,7 +265,7 @@ zplugin light zsh-users/zsh-autosuggestions
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light arzzen/calc.plugin.zsh
 zplugin light adolfoabegg/browse-commit
-zplugin light tarrasch/zsh-bd
+zplugin light melkster/zsh-bd
 zplugin light peterhurford/git-it-on.zsh
 zplugin light mafredri/zsh-async
 
