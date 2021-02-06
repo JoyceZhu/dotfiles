@@ -71,10 +71,9 @@
   "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
   "git.confirmSync": false,
-  "git.path": "/usr/local/bin/git",
-  "gitlens.advanced.blame.customArguments": [
-    "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
-  ],
+  // "gitlens.advanced.blame.customArguments": [
+  //   "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
+  // ],
   "gitlens.advanced.messages": {
     "suppressCommitNotFoundWarning": true,
     "suppressNoRepositoryWarning": true,
@@ -262,5 +261,20 @@
 "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
-"python.showStartPage": false
+"python.showStartPage": false,
+"workbench.editorAssociations": [],
+"files.insertFinalNewline": true,
+"editor.showFoldingControls": "always",
+"editor.mouseWheelScrollSensitivity": 0.7,
+"editor.tabSize": 4,
+"editor.useTabStops": true,
+"editor.wordWrap": "on",
+"editor.formatOnPaste": true,
+"git.path": "/usr/local/Cellar/git/2.29.2/bin/git",
+"gitlens.hovers.currentLine.over": "line",
+"gitlens.outputLevel": "verbose",
+"vscode-neovim.mouseSelectionStartVisualMode": true,
+"workbench.editor.decorations.colors": true,
+"workbench.editor.decorations.badges": true,
 }
+
