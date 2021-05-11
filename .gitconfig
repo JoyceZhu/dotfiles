@@ -2,7 +2,7 @@
 	autosetuprebase = always
 [user]
 	name = Joyce Zhu
-	email = jzhu29@u.rochester.edu
+	email = joyce@quip.com
 [color]
 	ui = true
 [core]
@@ -25,7 +25,7 @@
 	old = red bold
 	whitespace = red reverse
 [delta]
-    features = line-numbers
+    features = line-numbers side-by-side hyperlinks
     plus-style = syntax "#044e03"
     minus-style = syntax "#720204"
     minus-emph-style = syntax bold "#8a1c1e"
