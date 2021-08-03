@@ -278,3 +278,6 @@ zplugin light wfxr/forgit
 source ~/.quiprc
 alias ga=forgit::add
 q
+
+# Bypass https://github.com/nvbn/thefuck/issues/1219
+export THEFUCK_PRIORITY="git_hook_bypass=1100"
