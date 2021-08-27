@@ -80,7 +80,7 @@ alias merge="git merge"
 alias binstall="brew install"
 alias activate="source $HOME/venv/bin/activate"
 alias mysql="mysql -u root -p"
-alias weather='ansiweather -l "San Francisco,us" -u imperial -s true; ansiweather -l "Palo Alto,us" -u imperial -s true'
+alias weather='ansiweather -l "Cambridge,us" -u imperial -s true -d true; ansiweather -l "Palo Alto,us" -u imperial -s true -d true'
 eval $(thefuck --alias)
 export LSCOLORS=Gadxcxdxfxegedabagacad
 alias mycommits="git log --author=\"Joyce\""
