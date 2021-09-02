@@ -15,6 +15,7 @@
   "bracket-pair-colorizer-2.forceIterationColorCycle": true,
   "bracket-pair-colorizer-2.highlightActiveScope": true,
   "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "editor.bracketPairColorization.enabled": true,
   "breadcrumbs.enabled": true,
   "breadcrumbs.symbolPath": "off",
   // "csharp.suppressDotnetInstallWarning": true,
@@ -22,7 +23,7 @@
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.find.autoFindInSelection": "never",
-  "editor.find.seedSearchStringFromSelection": false,
+  "editor.find.seedSearchStringFromSelection": "never",
   "editor.fontFamily": "Code New Roman, Cascadia Code, Fira Code, Roboto Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 18,
   "editor.formatOnSaveTimeout": 3000,
@@ -32,6 +33,7 @@
   "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "alt",
   "editor.occurrencesHighlight": false,
+  "editor.suggest.preview": true,
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
   "editor.rulers": [{ "column": 80, "color": "#fd0000" }],
@@ -206,7 +208,6 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/Applications/nvim",
   "window.openFoldersInNewWindow": "on",
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#00d9ffa6",
     "activityBar.background": "#42b883",
@@ -262,7 +263,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
 "python.showStartPage": false,
-"workbench.editorAssociations": [],
+"workbench.editorAssociations": {
+  "*.ipynb": "jupyter-notebook"
+},
 "files.insertFinalNewline": true,
 "editor.showFoldingControls": "always",
 "editor.mouseWheelScrollSensitivity": 0.7,
@@ -276,5 +279,12 @@
 "vscode-neovim.mouseSelectionStartVisualMode": true,
 "workbench.editor.decorations.colors": true,
 "workbench.editor.decorations.badges": true,
+"[html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"notebook.cellToolbarLocation": {
+  "default": "right",
+  "jupyter-notebook": "left"
+},
 }
 
