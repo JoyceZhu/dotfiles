@@ -281,3 +281,7 @@ q
 
 # Bypass https://github.com/nvbn/thefuck/issues/1219
 export THEFUCK_PRIORITY="git_hook_bypass=1100"
+# PDE SETUP || 2022-02-15T15:36:03-0500
+##############################################
+/usr/bin/ssh-add --apple-load-keychain >/dev/null 2>&1
+##############################################
