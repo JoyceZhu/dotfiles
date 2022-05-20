@@ -21,9 +21,8 @@
   "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "alt",
   "editor.occurrencesHighlight": false,
-  "editor.suggest.preview": true,
+  // "editor.suggest.preview": true,
   "editor.renderControlCharacters": true,
-  "editor.renderIndentGuides": true,
   "editor.rulers": [{ "column": 80, "color": "#fd0000" }],
   "editor.selectionHighlight": false,
   "editor.smoothScrolling": true,
@@ -45,7 +44,7 @@
   //     "typescript": "html",
   // },
   "emmet.showSuggestionsAsSnippets": true,
-  "emmet.triggerExpansionOnTab": true,
+  // "emmet.triggerExpansionOnTab": true,
   "eslint.options": {
     "rulePaths": ["static/tools/eslint/rules"]
   },
@@ -61,9 +60,9 @@
   "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
   "git.confirmSync": false,
-  // "gitlens.advanced.blame.customArguments": [
-  //   "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
-  // ],
+  "gitlens.advanced.blame.customArguments": [
+    "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
+  ],
   "gitlens.advanced.messages": {
     "suppressCommitNotFoundWarning": true,
     "suppressNoRepositoryWarning": true,
@@ -244,6 +243,9 @@
   "workbench.colorTheme": "VimBlackboard",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 7,
   "workbench.editor.titleScrollbarSizing": "large",
   "workbench.fontAliasing": "antialiased",
   "workbench.editor.highlightModifiedTabs": true,
@@ -280,4 +282,5 @@
   "default": "right",
   "jupyter-notebook": "left"
 },
+"editor.guides.indentation": true,
 }
