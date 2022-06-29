@@ -136,12 +136,13 @@ call plug#begin()
   Plug 'ap/vim-css-color'
   "Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-commentary'
-  Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'frazrepo/vim-rainbow'
 call plug#end()
 set updatetime=100
 let g:eldar_green = "#06eb78"
 silent! colorscheme eldar " Custom color scheme
 map <leader>fs :NERDTreeToggle<cr>
+let g:rainbow_active = 1
 
 " ALE
 
