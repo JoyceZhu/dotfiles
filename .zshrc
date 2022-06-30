@@ -245,39 +245,44 @@ bindkey -M isearch " " magic-space
 
 
 # Various other scripts
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # iTerm2 shell integration
 source ~/.iterm2_shell_integration.zsh
 # interactive `cd`
 source ~/.zsh-interactive-cd.plugin.zsh
 
-### Added by Zplugin's installer
-source ~/.zplugin/bin/zplugin.zsh
-# autoload -Uz _zplugin
-# (( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer ch
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-zplugin ice wait"0" atload"unalias grv; unalias ga; unalias gd" lucid
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplugin ice wait"0" blockf lucid
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light arzzen/calc.plugin.zsh
-zplugin light adolfoabegg/browse-commit
-zplugin light melkster/zsh-bd
-zplugin light peterhurford/git-it-on.zsh
-zplugin light mafredri/zsh-async
+zinit ice wait"0" atload"unalias grv; unalias ga; unalias gd" lucid
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 
-zplugin ice wait"0" lucid
-zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit ice wait"0" blockf lucid
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light arzzen/calc.plugin.zsh
+zinit light adolfoabegg/browse-commit
+zinit light melkster/zsh-bd
+zinit light peterhurford/git-it-on.zsh
+zinit light mafredri/zsh-async
 
-zplugin ice wait"0.1" lucid
-zplugin light wfxr/forgit
+zinit ice wait"0" lucid
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-source ~/.quiprc
+zinit ice wait"0.1" lucid
+zinit light wfxr/forgit
+
 alias ga=forgit::add
-q
 
 # Bypass https://github.com/nvbn/thefuck/issues/1219
 export THEFUCK_PRIORITY="git_hook_bypass=1100"
@@ -285,3 +290,13 @@ export THEFUCK_PRIORITY="git_hook_bypass=1100"
 ##############################################
 /usr/bin/ssh-add --apple-load-keychain >/dev/null 2>&1
 ##############################################
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
