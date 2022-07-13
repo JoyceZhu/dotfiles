@@ -1,15 +1,14 @@
+
 [branch]
 	autosetuprebase = always
 [user]
-	name = Joyce Zhu
-	email = joyce@quip.com
+    name = Joyce Zhu
+    email = joycezhu@github.com
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/joyce.zhu/.gitignore_global
 	editor = /usr/bin/vim
 	pager = delta --diff-so-fancy | less --tabs=4 -RFX
-[difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 [filter "lfs"]
@@ -36,6 +35,10 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = cyan box ul
+    grep-file-style = magenta
+    grep-line-number-style = yellow
+    grep-match-word-style = cyan ul
+    grep-separator-symbol = keep
 [interactive]
     diffFilter = delta --color-only
 [push]
@@ -54,3 +57,7 @@
 	autoStash = true
 [diff]
 	colorMoved = default
+[grep]
+	extendRegexp = true
+	lineNumber = true
+     fullName= true
