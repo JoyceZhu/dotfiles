@@ -60,9 +60,9 @@
   "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
   "git.confirmSync": false,
-  "gitlens.advanced.blame.customArguments": [
-    "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
-  ],
+  // "gitlens.advanced.blame.customArguments": [
+  //   "--ignore-revs-file=/Users/joyce.zhu/quip/.git-blame-ignore-revs"
+  // ],
   "gitlens.advanced.messages": {
     "suppressCommitNotFoundWarning": true,
     "suppressNoRepositoryWarning": true,

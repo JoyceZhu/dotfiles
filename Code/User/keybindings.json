@@ -87,7 +87,7 @@
     },
     {
         "key": "cmd+g cmd+h",
-        "command": "gitlens.openCommitInRemote"
+        "command": "gitlens.openCommitOnRemote"
     },
     {
         "key": "ctrl+alt+g",
