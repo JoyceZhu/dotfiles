@@ -305,4 +305,4 @@ zinit light-mode for \
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
-eval "$(rbenv init - zsh)
+eval "$(rbenv init - zsh)"
