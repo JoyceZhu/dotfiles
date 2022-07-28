@@ -8,17 +8,22 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 
 # Homebrew
-
 if test ! "$(command -v brew)"; then
     info "Homebrew not installed. Installing."
     # Run as a login shell (non-interactive) so that the script doesn't pause for user input
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
+    [ -n "${MACOS}" ] && curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
 fi
 
 echo -e "\033[1mSetting up Homebrew\033[0m"
 [ -n "${MACOS}" ] && brew tap homebrew/bundle
 [ -n "${MACOS}" ] && brew bundle --file Brewfile
 echo -e "\033[1mHomebrew setup complete\033[0m\n"
+
+
+if ! grep -q "root.*/bin/zsh" /etc/passwd
+then
+  chsh -s /bin/zsh root
+fi
 
 # vim
 echo -e "\033[Linking vim stuff\033[0m"
