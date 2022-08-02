@@ -55,3 +55,11 @@ if [ ! -f "${HOME}/.fig" ]; then
   ln -fs "${DOTFILES_DIRECTORY}/fig/settings.json" "${HOME}/.fig/settings.json"
 fi
 echo -e "\033[1mFig setup complete\033[0m\n"
+
+# hammerspoon
+echo -e "\033[1mSetting up Hammerspoon\033[0m"
+if [ ! -f "${HOME}/.hammerspoon" ]; then
+  mkdir -p "${HOME}/.hammerspoon"
+  ln -fs "${DOTFILES_DIRECTORY}/hammerspoon-init.lua" "${HOME}/.hammerspoon/init.lua"
+fi
+echo -e "\033[1mHammerspoon setup complete\033[0m\n"
