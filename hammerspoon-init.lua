@@ -4,36 +4,6 @@
 hs.window.animationDuration = 0
 
 -------------------------------------------------------------------
--- Events
---
--- I just use this to explore some possibilities, but have never
--- actually done anything with it, so all it does "for real" is
--- return false
--------------------------------------------------------------------
-theEventTap = hs.eventtap.new({ hs.eventtap.event.types.keyDown }, function(e)
-  if e:getKeyCode() == 105 then
-    print("Received keydown event: " .. e:getKeyCode())
-    hs.caffeinate.startScreensaver()
-    return true
-  else
-    return false
-  end
-end)
-theEventTap:start()
-
--------------------------------------------------------------------
--- Vim Mode
---
--- Not sure I like this one... but I'm still trying it out.
--------------------------------------------------------------------
-
--- vim = hs.loadSpoon('VimMode')
---
--- hs.hotkey.bind({'ctrl'}, ';', function()
---   vim:enter()
--- end)
-
--------------------------------------------------------------------
 -- Window Layouts
 -------------------------------------------------------------------
 
@@ -171,25 +141,6 @@ else
   hs.hotkey.bind(mash, '9', function() runLayout(layouts.alternatecoding) end)
 end
 hs.hotkey.bind(mash, '8', function() runLayout(layouts.writing) end)
-
--------------------------------------------------------------------
--- Key Remapper
---
--- Doesn't work.
--------------------------------------------------------------------
-
--- local function pressFn(mods, key)
--- 	if key == nil then
--- 		key = mods
--- 		mods = {}
--- 	end
---
--- 	return function() hs.eventtap.keyStroke(mods, key, 1000) end
--- end
---
--- local function remap(mods, key, pressFn)
--- 	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
--- end
 
 -------------------------------------------------------------------
 -- Deep Work
@@ -344,27 +295,27 @@ launchMode:bind({ 'ctrl' }, 'space', function() leaveMode() end)
 
 -- Mapped keys
 launchMode:bind({}, 'c',  function() switchToApp('Google Chrome.app') end)
-launchMode:bind({}, 'd',  function() leaveMode(); deepwork() end)
-launchMode:bind({"shift"}, 'd',  function() leaveMode(); interrogateDeepWorkTimer() end)
 launchMode:bind({}, 'f',  function() switchToApp('Firefox.app') end)
-launchMode:bind({}, 'g',  function() switchToApp('OmniGraffle.app') end)
-launchMode:bind({}, 'i',  function() switchToApp('Signal.app') end)
-launchMode:bind({}, 'k',  function() switchToApp('Skim.app') end)
-launchMode:bind({}, 'l',  function() switchToApp('VLC.app') end)
-launchMode:bind({}, 'm',  function() switchToApp('Mail.app') end)
-launchMode:bind({}, 'o',  function() switchToApp('Microsoft Outlook.app') end)
+launchMode:bind({}, 'g',  function() leaveMode() end)
+launchMode:bind({}, 'i',  function() switchToApp('iTerm.app') end)
+launchMode:bind({}, 'k',  function() switchToApp('Kap.app') end)
+launchMode:bind({}, 'l',  function()  leaveMode() end)
+launchMode:bind({}, 'm',  function()  leaveMode() end)
+launchMode:bind({}, 'n',  function() switchToApp('Sublime Text.app') end)
+launchMode:bind({}, 'o',  function()  leaveMode() end)
 launchMode:bind({}, 'r',  function() switchToApp('Safari') end)
-launchMode:bind({}, 'p',  function() switchToApp('Microsoft Powerpoint.app') end)
+launchMode:bind({}, 'p',  function() switchToApp('Preview.app') end)
+launchMode:bind({}, 'q',  function() switchToApp('Quip.app') end)
+
 launchMode:bind({}, 's',  function() switchToApp('Slack.app') end)
-launchMode:bind({}, 't',  function() switchToApp('iTerm.app') end)
--- launchMode:bind({}, 'v',  function() switchToApp('VimR.app') end)
-launchMode:bind({}, 'v',  function() switchToApp('MacVim.app') end)
+launchMode:bind({}, 'v',  function() switchToApp('Visual Studio Code.app') end)
 launchMode:bind({}, 'w',  function() switchToApp('WhatsApp.app') end)
-launchMode:bind({}, 'z',  function() switchToApp('zoom.us.app') end)
+launchMode:bind({}, 'z',  function() switchToApp('Zoom.app') end)
+launchMode:bind({}, '1',  function() switchToApp('1Password.app') end)
 launchMode:bind({}, '`',  function() hs.reload(); leaveMode() end)
 
 -- Unmapped keys
-launchMode:bind({}, 'a',  function() leaveMode() end)
+launchMode:bind({}, 'a',  function() switchToApp('Activity Monitor.app') end)
 launchMode:bind({}, 'b',  function() leaveMode() end)
 
 
@@ -376,21 +327,12 @@ launchMode:bind({}, 'h',  function() leaveMode() end)
 launchMode:bind({}, 'j',  function() leaveMode() end)
 
 
-
-launchMode:bind({}, 'n',  function() leaveMode() end)
-
-
-launchMode:bind({}, 'q',  function() leaveMode() end)
-
-
-
 launchMode:bind({}, 'u',  function() leaveMode() end)
 
 
 launchMode:bind({}, 'x',  function() leaveMode() end)
 launchMode:bind({}, 'y',  function() leaveMode() end)
 
-launchMode:bind({}, '1',  function() leaveMode() end)
 launchMode:bind({}, '2',  function() leaveMode() end)
 launchMode:bind({}, '3',  function() leaveMode() end)
 launchMode:bind({}, '4',  function() leaveMode() end)
@@ -412,7 +354,7 @@ launchMode:bind({}, '.',  function() leaveMode() end)
 launchMode:bind({}, '/',  function() leaveMode() end)
 
 
-
+-- Window snappin'
 
 hs.loadSpoon("ShiftIt")
 spoon.ShiftIt:bindHotkeys({
