@@ -9,7 +9,7 @@ MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 
 # Homebrew
 if test ! "$(command -v brew)"; then
-    info "Homebrew not installed. Installing."
+    echo "Homebrew not installed. Installing."
     # Run as a login shell (non-interactive) so that the script doesn't pause for user input
     [ -n "${MACOS}" ] && curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
 fi
