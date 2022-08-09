@@ -5,18 +5,22 @@
 setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
-MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
+LINUX=$(uname -a | grep -Fq Linux 2>/dev/null && echo "LINUX" || echo "")
+
+cd $HOME
 
 # Homebrew
 if test ! "$(command -v brew)"; then
     echo "Homebrew not installed. Installing."
     # Run as a login shell (non-interactive) so that the script doesn't pause for user input
-    [ -n "${MACOS}" ] && curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
+    [ -n "${LINUX}"] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 echo -e "\033[1mSetting up Homebrew\033[0m"
-[ -n "${MACOS}" ] && brew tap homebrew/bundle
-[ -n "${MACOS}" ] && brew bundle --file Brewfile
+ln -fs "${DOTFILES_DIRECTORY}/Brewfile" "${HOME}/Brewfile"
+brew tap homebrew/bundle
+brew bundle --file Brewfile
 echo -e "\033[1mHomebrew setup complete\033[0m\n"
 
 
@@ -46,6 +50,7 @@ echo -e "\033[1mSetting up Zsh\033[0m"
 ln -fs "${DOTFILES_DIRECTORY}/.zprofile" "${HOME}/.zprofile"
 ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
 ln -fs "${DOTFILES_DIRECTORY}/zsh-brew-services.zsh" "${HOME}/zsh-brew-services.zsh"
+ln -fs "${DOTFILES_DIRECTORY}/.zsh-interactive-cd.plugin.zsh" "${HOME}/.zsh-interactive-cd.plugin.zsh"
 echo -e "\033[1mZsh setup complete\033[0m\n"
 
 # fig

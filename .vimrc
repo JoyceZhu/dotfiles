@@ -232,7 +232,6 @@ let g:javascript_plugin_jsdoc = 1
 " grr for word under cursor "
 "map <leader>m :Grr <cword> -m 1000<cr>
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['<', '>'], ['{', '}']]
-au VimEnter * RainbowParentheses
 highlight LineNr term=bold cterm=NONE ctermfg=Red
 
 " unmap gc

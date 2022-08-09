@@ -1,5 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 # Use vim keybindings, but add some favorite emacs standards
 bindkey -v
 bindkey '^A' beginning-of-line
@@ -249,7 +250,7 @@ bindkey -M isearch " " magic-space
 # Various other scripts
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # iTerm2 shell integration
-source ~/.iterm2_shell_integration.zsh
+[ -n "${MACOS}"] && source ~/.iterm2_shell_integration.zsh
 # interactive `cd`
 source ~/.zsh-interactive-cd.plugin.zsh
 
