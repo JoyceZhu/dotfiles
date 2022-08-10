@@ -43,6 +43,8 @@ compdef __gnu_generic remind
 alias vimrc="vim ~/.vimrc"
 alias rc="vim ~/.zshrc"
 alias erc="source ~/.zshrc"
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias pu="git pull; git push"
 
