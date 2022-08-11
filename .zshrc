@@ -97,7 +97,7 @@ export ENV_BROKER_HOST=localhost
 alias firefox=/Applications/Firefox.app/Contents/MacOS/firefox
 export MOZ_NO_REMOTE=0
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export BROWSER=firefox
+[ -n "${MACOS}" ] && export BROWSER=firefox
 
 # VSCode color scheme development
 alias uvscode="cp ~/joycevimblackboard/themes/vim-blackboard.tmTheme  ~/.vscode/extensions/vimblackboard/themes/vim-blackboard.tmTheme"
@@ -252,7 +252,7 @@ bindkey -M isearch " " magic-space
 # Various other scripts
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # iTerm2 shell integration
-[ -n "${MACOS}"] && source ~/.iterm2_shell_integration.zsh
+[ -n "${MACOS}" ] && source ~/.iterm2_shell_integration.zsh
 # interactive `cd`
 source ~/.zsh-interactive-cd.plugin.zsh
 
