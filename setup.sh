@@ -14,7 +14,7 @@ if test ! "$(command -v brew)"; then
     echo "Homebrew not installed. Installing."
     # Run as a login shell (non-interactive) so that the script doesn't pause for user input
     curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
-    [ -n "${LINUX}" ] && eval "$(${HOME}/.linuxbrew/bin/brew shellenv)"
+    [ -n "${LINUX}" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 fi
 
