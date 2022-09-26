@@ -33,88 +33,6 @@ units = {
   center        = { x = 0.20, y = 0.10, w = 0.60, h = 0.80 }
 }
 
--- There is a 'layout' plugin but it was more difficult for me to
--- understand than it was for me to just write my own, so this is
--- my definitions for defining the layouts for all of the apps
--- that I tend to use.
-layouts = {
-  alternatecoding = {
-    -- { name = 'VimR',              unit = units.left30 },
-    { name = 'Firefox',           app = 'Firefox.app',           unit = units.left70 },
-    { name = 'MacVim',            app = 'MacVim.app',            unit = units.left30 },
-    { name = 'iTerm2',            app = 'iTerm.app',             unit = units.right70 }
-  },
-  alternatework = {
-    -- { name = 'VimR',              unit = units.left30,  screen = 'Thunderbolt Display' },
-    { name = 'Firefox',           app = 'Firefox.app',           unit = units.left70,  screen = 'Thunderbolt Display' },
-    { name = 'MacVim',            app = 'MacVim.app',            unit = units.left30,  screen = 'Thunderbolt Display' },
-    { name = 'iTerm2',            app = 'iTerm.app',             unit = units.right70, screen = 'Thunderbolt Display' },
-    { name = 'Slack',             app = 'Slack.app',             unit = units.bot87,   screen = 'Color LCD' },
-    { name = 'Microsoft Outlook', app = 'Microsoft Outlook.app', unit = units.maximum, screen = 'Color LCD' },
-    { name = 'WhatsApp',          app = 'WhatsApp.app',          unit = units.center,  screen = 'Color LCD' },
-    { name = 'Signal',            app = 'Signal.app',            unit = units.center,  screen = 'Color LCD' },
-    { name = 'Google Chrome',     app = 'Google Chrome.app',     unit = units.right70, screen = 'Color LCD' }
-  },
-  coding = {
-    -- { name = 'VimR',    unit = units.left70 },
-    { name = 'Firefox',           app = 'Firefox.app',           unit = units.left70 },
-    { name = 'MacVim',            app = 'MacVim.app',            unit = units.left70 },
-    { name = 'iTerm2',            app = 'iTerm2.app',            unit = units.right30 }
-  },
-  -- I'll use 'work' as my example. If I want to position the windows of
-  -- all of these applications, then I simply specify 'layouts.work' and
-  -- then the layout engine will move all of the windows for these apps to
-  -- the right monitor and in the right position on that monitor.
-  work = {
-    -- { name = 'VimR',              unit = units.left70,  screen = 'Thunderbolt Display' },
-    { name = 'Firefox',           app = 'Firefox.app',            unit = units.left70,  screen = 'Thunderbolt Display' },
-    { name = 'MacVim',            app = 'MacVim.app',             unit = units.left70,  screen = 'Thunderbolt Display' },
-    { name = 'iTerm2',            app = 'iTerm.app',              unit = units.right30, screen = 'Thunderbolt Display' },
-    { name = 'Slack',             app = 'Slack.app',              unit = units.bot87,   screen = 'Color LCD' },
-    { name = 'Microsoft Outlook', app = 'Microsoft Outlook.app',  unit = units.maximum, screen = 'Color LCD' },
-    { name = 'WhatsApp',          app = 'WhatsApp.app',           unit = units.center,  screen = 'Color LCD' },
-    { name = 'Signal',            app = 'Signal.app',             unit = units.center,  screen = 'Color LCD' },
-    { name = 'Google Chrome',     app = 'Google Chrome.app',      unit = units.right70, screen = 'Color LCD' }
-  },
-  writing = {
-    -- { name = 'VimR',    unit = units.left70 },
-    { name = 'Firefox',           app = 'Firefox.app',            unit = units.left70 },
-    { name = 'MacVim',            app = 'MacVim.app',             unit = units.left70 },
-    { name = 'iTerm2',            app = 'iTerm.app',              unit = units.right30 },
-    { name = 'Skim',              app = 'Skim.app',               unit = units.right70top80 }
-  }
-}
-
--- Tells me whether or not the machine running Hammerspoon is
--- my work machine or not
-function isWorkMachine()
-  local allNames = hs.host.names()
-  for i=1,#allNames do
-    if allNames[i]:match('^cawl') then
-      return true
-    end
-  end
-  return false
-end
-
--- Takes a layout definition (e.g. 'layouts.work') and iterates through
--- each application definition, laying it out as speccified
-function runLayout(layout)
-  for i = 1,#layout do
-    local t = layout[i]
-    local theapp = hs.application.get(t.name)
-    if win == nil then
-      hs.application.open(t.app)
-      theapp = hs.application.get(t.name)
-    end
-    local win = theapp:mainWindow()
-    local screen = nil
-    if t.screen ~= nil then
-      screen = hs.screen.find(t.screen)
-    end
-    win:move(t.unit, screen, true)
-  end
-end
 
 -- All of the mappings for moving the window of the 'current' application
 -- to the right spot. Tries to map 'vim' keys as much as possible, but
@@ -130,17 +48,6 @@ hs.hotkey.bind(mash, ';', function() hs.window.focusedWindow():move(units.botlef
 hs.hotkey.bind(mash, "'", function() hs.window.focusedWindow():move(units.botright30, nil, true) end)
 hs.hotkey.bind(mash, 'm', function() hs.window.focusedWindow():move(units.maximum,    nil, true) end)
 
--- The goal here is to bind mash+0 and mash+9 to the grander layouts
--- but there's a quick difference depending on whether or not I happen
--- to be on my work machine or not
-if isWorkMachine() then
-  hs.hotkey.bind(mash, '0', function() runLayout(layouts.work) end)
-  hs.hotkey.bind(mash, '9', function() runLayout(layouts.alternatework) end)
-else
-  hs.hotkey.bind(mash, '0', function() runLayout(layouts.coding) end)
-  hs.hotkey.bind(mash, '9', function() runLayout(layouts.alternatecoding) end)
-end
-hs.hotkey.bind(mash, '8', function() runLayout(layouts.writing) end)
 
 -------------------------------------------------------------------
 -- Deep Work
@@ -316,7 +223,7 @@ launchMode:bind({}, '`',  function() hs.reload(); leaveMode() end)
 
 -- Unmapped keys
 launchMode:bind({}, 'a',  function() switchToApp('Activity Monitor.app') end)
-launchMode:bind({}, 'b',  function() leaveMode() end)
+launchMode:bind({}, 'b',  function() switchToApp('Boop.app') end)
 
 
 launchMode:bind({}, 'e',  function() leaveMode() end)
