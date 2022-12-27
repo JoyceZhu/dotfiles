@@ -55,7 +55,7 @@
       "LT(2,KC_EQL)",
       "LT(3,KC_SPC)",
       "KC_ENT",
-      "TO(1)",
+      "KC_BSLS",
       "KC_PSCR"
     ],
     [
@@ -107,7 +107,7 @@
       "LT(2,KC_EQL)",
       "LT(3,KC_SPC)",
       "KC_ENT",
-      "TO(0)",
+      "KC_BSLS",
       "KC_PSCR"
     ],
     [
