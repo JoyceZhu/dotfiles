@@ -1,6 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
-MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Use vim keybindings, but add some favorite emacs standards
 bindkey -v
 bindkey '^A' beginning-of-line
@@ -43,8 +42,6 @@ compdef __gnu_generic remind
 alias vimrc="vim ~/.vimrc"
 alias rc="vim ~/.zshrc"
 alias erc="source ~/.zshrc"
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias pu="git pull; git push"
 
@@ -97,7 +94,7 @@ export ENV_BROKER_HOST=localhost
 alias firefox=/Applications/Firefox.app/Contents/MacOS/firefox
 export MOZ_NO_REMOTE=0
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-[ -n "${MACOS}" ] && export BROWSER=firefox
+export BROWSER=firefox
 
 # VSCode color scheme development
 alias uvscode="cp ~/joycevimblackboard/themes/vim-blackboard.tmTheme  ~/.vscode/extensions/vimblackboard/themes/vim-blackboard.tmTheme"
@@ -132,10 +129,8 @@ local current_date=$'%{\e[1;33m%}%W'
 local return_status="%(?:%{$fg[blue]%}$prompt_string:%{$fg[red]%}$prompt_string)"
 PROMPT=$'${current_date} ${host_name}%{\e[1;31m%}\$(__git_ps1) ${path_string} ${return_status} %{$reset_color%}'
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/Users/joyce.zhu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/joyce.zhu/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 # source '/Users/joyce.zhu/Downloads/google-cloud-sdk/path.zsh.inc'
@@ -252,7 +247,7 @@ bindkey -M isearch " " magic-space
 # Various other scripts
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # iTerm2 shell integration
-[ -n "${MACOS}" ] && source ~/.iterm2_shell_integration.zsh
+source ~/.iterm2_shell_integration.zsh
 # interactive `cd`
 source ~/.zsh-interactive-cd.plugin.zsh
 
@@ -284,8 +279,8 @@ zinit light mafredri/zsh-async
 zinit ice wait"0" lucid
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-zinit ice wait"0.1" lucid
-zinit light wfxr/forgit
+zinit ice wait"0.1" atload"alias gco=\"git checkout\"" lucid
+zinit light wfxr/forgit 
 
 alias ga=forgit::add
 
@@ -306,6 +301,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
 eval "$(rbenv init - zsh)"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
