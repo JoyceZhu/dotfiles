@@ -81,7 +81,7 @@ alias binstall="brew install"
 alias activate="source $HOME/venv/bin/activate"
 alias mysql="mysql -u root -p"
 alias weather='ansiweather -l "Cambridge,us" -u imperial -s true -d true; ansiweather -l "Palo Alto,us" -u imperial -s true -d true'
-eval $(thefuck --alias)
+alias fuck='if ! declare -f fuck &>/dev/null; then eval -- "$(thefuck -a)"; fi && fuck'
 export LSCOLORS=Gadxcxdxfxegedabagacad
 alias mycommits="git log --author=\"Joyce\""
 export VENV="$HOME/venv"
@@ -283,10 +283,10 @@ zinit light wfxr/forgit
 alias ga=forgit::add
 
 # Bypass https://github.com/nvbn/thefuck/issues/1219
-export THEFUCK_PRIORITY="git_hook_bypass=1100"
+# export THEFUCK_PRIORITY="git_hook_bypass=1100"
 # PDE SETUP || 2022-02-15T15:36:03-0500
 ##############################################
-/usr/bin/ssh-add --apple-load-keychain >/dev/null 2>&1
+# /usr/bin/ssh-add --apple-load-keychain >/dev/null 2>&1
 ##############################################
 
 # Load a few important annexes, without Turbo
