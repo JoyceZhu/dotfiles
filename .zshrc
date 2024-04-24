@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Use vim keybindings, but add some favorite emacs standards
 bindkey -v
 bindkey '^A' beginning-of-line
@@ -301,7 +299,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
