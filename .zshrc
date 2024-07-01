@@ -1,3 +1,10 @@
+# Try to save history in codespaces
+export HISTFILE=/workspaces/.codespaces/.persistedshare/.zsh_history
+# Write history each command due to Codespace sometimes not flushing
+export PROMPT_COMMAND="history -a"
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+export HISTCONTROL=ignoreboth
 # Use vim keybindings, but add some favorite emacs standards
 bindkey -v
 bindkey '^A' beginning-of-line
