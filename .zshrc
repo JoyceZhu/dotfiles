@@ -296,6 +296,8 @@ alias ga=forgit::add
 # /usr/bin/ssh-add --apple-load-keychain >/dev/null 2>&1
 ##############################################
 
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
