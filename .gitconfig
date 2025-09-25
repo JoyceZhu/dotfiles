@@ -1,4 +1,3 @@
-
 [branch]
 	autosetuprebase = always
 [user]
@@ -24,7 +23,7 @@
 	old = red bold
 	whitespace = red reverse
 [delta]
-    features = line-numbers side-by-side hyperlinks
+    features = line-numbers hyperlinks
     plus-style = syntax "#044e03"
     minus-style = syntax "#720204"
     minus-emph-style = syntax bold "#8a1c1e"
@@ -35,10 +34,10 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = cyan box ul
-    grep-file-style = magenta
-    grep-line-number-style = yellow
-    grep-match-word-style = cyan ul
-    grep-separator-symbol = keep
+    ; grep-file-style = magenta
+    ; grep-line-number-style = yellow
+    ; grep-match-word-style = cyan ul
+    ; grep-separator-symbol = keep
 [interactive]
     diffFilter = delta --color-only
 [push]
@@ -60,4 +59,4 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
-     fullName= true
+    fullName= true

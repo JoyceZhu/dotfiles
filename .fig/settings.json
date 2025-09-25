@@ -1,6 +1,0 @@
-{
-  "app.disableTelemetry": true,
-  "app.launchOnStartup": true,
-  "autocomplete.disable" : false,
-  "autocomplete.theme" : "dark"
-}
