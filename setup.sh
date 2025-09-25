@@ -9,6 +9,10 @@ LINUX=$(uname -a | grep -Fq Linux 2>/dev/null && echo "LINUX" || echo "")
 
 cd $HOME
 
+if [ -n "$CODESPACES" ]; then
+    sudo apt-get install vim
+fi
+
 # Homebrew
 if test ! "$(command -v brew)"; then
     echo "Homebrew not installed. Installing."
